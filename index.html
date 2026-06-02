@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Kamu ❤️</title>
-
-<style>
+<title>Untuk Kamu ❤️</title><style>
 
 *{
     margin:0;
@@ -64,18 +61,20 @@ h1{
 button{
     width:100%;
     border:none;
-    background:#ff4d88;
+    background:linear-gradient(45deg,#ff4d88,#ff7eb3);
     color:white;
-    padding:16px;
+    padding:18px;
     border-radius:50px;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
     cursor:pointer;
-    animation:pulse 1.5s infinite;
+
+    animation:heartbeat 1.2s infinite;
+
+    box-shadow:0 0 20px rgba(255,77,136,.5);
 }
 
 button:hover{
-    animation:none;
     transform:scale(1.08);
 }
 
@@ -88,31 +87,32 @@ button:hover{
     font-weight:bold;
 }
 
-@keyframes pulse{
+@keyframes heartbeat{
 
     0%{
-        transform:translateY(0) scale(1);
-        box-shadow:0 0 0 rgba(255,77,136,0);
+        transform:scale(1);
+        box-shadow:0 0 15px rgba(255,77,136,.4);
     }
 
     25%{
-        transform:translateY(-5px) scale(1.03);
+        transform:scale(1.08);
+        box-shadow:0 0 30px rgba(255,77,136,.7);
     }
 
     50%{
-        transform:translateY(0) scale(1.08);
-        box-shadow:0 0 25px rgba(255,77,136,.6);
+        transform:scale(1.15);
+        box-shadow:0 0 45px rgba(255,77,136,1);
     }
 
     75%{
-        transform:translateY(-5px) scale(1.03);
+        transform:scale(1.08);
+        box-shadow:0 0 30px rgba(255,77,136,.7);
     }
 
     100%{
-        transform:translateY(0) scale(1);
-        box-shadow:0 0 0 rgba(255,77,136,0);
+        transform:scale(1);
+        box-shadow:0 0 15px rgba(255,77,136,.4);
     }
-
 }
 
 .heart{
@@ -134,26 +134,11 @@ button:hover{
     }
 }
 
-</style>
-</head>
-
-<body>
-
-<audio id="bgm" loop>
+</style></head><body><audio id="bgm" loop>
     <source src="My only one.mp3" type="audio/mpeg">
-</audio>
-
-<div class="card">
-
-<h1>Maaf Ya Sayang ❤️</h1>
-
-<div class="photo">
+</audio><div class="card"><h1>Maaf Ya Sayang ❤️</h1><div class="photo">
     <img src="foto.jpg" alt="Foto Kita">
-</div>
-
-<div class="message">
-
-Aku benar-benar menyesal karena telah berulang kali melakukan kesalahan yang sama.
+</div><div class="message">Aku benar-benar menyesal karena telah berulang kali melakukan kesalahan yang sama.
 
 <br><br>
 
@@ -187,20 +172,12 @@ Aku hanya ingin kamu sehat, tenang, bahagia, dan tersenyum setiap hari.
 
 Aku sangat mencintaimu ❤️
 
-</div>
-
-<button onclick="forgive()">
-Aku Maafin Kamu ❤️
-</button>
-
-<div id="reply">
+</div><button id="loveButton" onclick="forgive()">
+💖 Klik Aku Sayang 💖
+</button><div id="reply">
 Terima kasih sayang ❤️<br>
 Aku akan terus berusaha menjadi lebih baik.
-</div>
-
-</div>
-
-<script>
+</div></div><script>
 
 function forgive(){
 
@@ -251,7 +228,26 @@ for(let i=0;i<50;i++){
     document.body.appendChild(heart);
 }
 
-</script>
+setInterval(() => {
 
-</body>
+    const btn = document.getElementById("loveButton");
+
+    if(btn){
+
+        btn.animate([
+            { transform: 'translateX(0px)' },
+            { transform: 'translateX(-6px)' },
+            { transform: 'translateX(6px)' },
+            { transform: 'translateX(-6px)' },
+            { transform: 'translateX(0px)' }
+        ], {
+            duration: 600,
+            iterations: 1
+        });
+
+    }
+
+}, 2500);
+
+</script></body>
 </html>
